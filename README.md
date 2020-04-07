@@ -1,5 +1,7 @@
 # Unit 11 Express Homework: Note Taker
 
+This Homework allowed us to create a server.  We then created a ".json" file in order to stor our new notes. I used route in order to "GET", "POST" and "DELETE" a note array to and from the ".json" file.  All of the front-end HTML was done for us, so there was not a lot of code to write.  It did help reinforce the "readFile and writeFile"
+
 ## Description
 
 Create an application that can be used to write, save, and delete notes. This application will use an express backend and save and retrieve note data from a JSON file.

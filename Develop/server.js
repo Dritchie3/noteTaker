@@ -3,11 +3,7 @@ const path = require('path');
 const express = require('express');
 const PORT = process.env.PORT || 3000
 const app= express()
-
-
 const router = express.Router();
-
-
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
@@ -21,7 +17,6 @@ app.get("/notes", (req,res)=>{
     res.sendFile(path.join(__dirname, "./public/notes.html"))
     console.log('sent URL with /notes');
 })
-
 // --------------------
 app.route("/api/notes")
     .get((req,res)=>{
@@ -34,15 +29,12 @@ app.route("/api/notes")
         });
     })
     //send the data
-    .post((req,res)=>{
-        
+    .post((req,res)=>{        
         console.log('Post request')  
-        //fs.readfile
-       
+        //fs.readfile       
         fs.readFile(path.join(__dirname, './db/db.json'), 'utf-8',(err, data) => { 
             console.log('Made it past readfile');        
-            if(err)throw(err)
-            
+            if(err)throw(err)            
             console.log('2 read data = ' + data);
             //var=json.parse
             let noteData = JSON.parse(data); 
@@ -61,7 +53,6 @@ app.route("/api/notes")
         });        
     });
 //     ------------------
-
 // GET /api/notes db.json
 // POST /api/notes db.json
 // DELETE /api/notes/:id db.json
@@ -84,40 +75,7 @@ app.delete("/api/notes/:id",(req,res)=>{
 app.get("*", (req,res)=>{
     console.log('trash');
     res.sendFile(path.join(__dirname, "./public/index.html"))
+});
 
-})
+app.listen(PORT, () => console.log("listening on " + PORT));
 
-app.listen(PORT, () => console.log("listening on " + PORT))
-
-// //multi-file patterns
-// //function pattern
-// require('routes')(app)
-// //require side
-// module.exports=function(app){
-//     app.get()...
-// }
-// //router pattern
-// const routes= require("routes")
-// app.use("/api/", routes)
-// //require side
-// const router = express.router()
-// router.get("/notes"
-//     )
-// module.exports = router
-
-// //get  a list from db
-// router.get('/api/notes', function(req,res){
-//     res.send({type:'GET'});
-// });
-// //add something to db
-// router.post('/api/notes', function(req,res){
-//     res.send({type:'POST'});
-// });
-// //update to db
-// router.put('/api/notes/:id', function(req,res){
-//     res.send({type:'PUT'});
-// });
-// //delete something from db
-// router.delete('/api/notes/:id', function(req,res){
-//     res.send({type:'DELETE'});
-// });
