@@ -4,6 +4,10 @@ This Homework allowed us to create a server.  We then created a ".json" file in 
 
 github URL: https://github.com/Dritchie3/noteTaker
 
+Heroku URL: https://note-taker-doug.herokuapp.com/
+
+aboutMe portfolio link: https://dritchie3.github.io/AboutMe/portfolio.html
+
 
 ## Description
 
